@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.image {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  cursor: grab;
+  transition: transform 0.2s ease;
+}
+
+.image img:active {
+  cursor: grabbing;
+}
+
+/* Optional styles for better visual feedback during dragging */
+.image img:hover {
+  transform: scale(1.1);
+  z-index: 1;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.image img:active {
+  transform: scale(1.2);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+/* CSS for selected images */
+
+/* Add the following styles to create the selected image overlay and checkbox */
+.image {
+  position: relative;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.selected .overlay {
+  display: flex;
+}
+.checkbox {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 25px;
+  height: 25px;
+  background-color:  #007bff;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10%;
+  color: white;
+  display: none; /* Hide the checkbox by default */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* Show the checkbox when hovering over the image */
+.image:hover .checkbox {
+  display: flex;
+}
+
+
+.selected .checkbox {
+  display: flex;
+}
+
+.selected .checkbox span {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.delete-link {
+  display: inline;
+  color: red; /* Link color */
+  text-decoration:none; /* Underline style */
+  cursor: pointer;
+}
+.add-image-card {
+  border: 1.5px dashed gray; /* Dashed border with blue color */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.add-new-image-text {
+  font-size: 15px;
+  font-weight: bold;
+  color:black;
+}
+.delete-link:hover {
+  text-decoration: underline; /* Remove underline on hover */
+}
+
+/* Add media queries for mobile responsiveness */
+@media (max-width: 768px) {
+  .image-container {
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns for small screens */
   }
 }

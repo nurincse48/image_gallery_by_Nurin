@@ -1,0 +1,13 @@
+Used Necessery Component & dependencies:
+
+1. react
+2. bootstrap
+3. react-fontawesome
+4. free-solid-svg-icons
+5. css for designing
+6. transition for a polished look and feel
+7. media queries responsive user experience
+8. Github as version control software
+-------------------------------------------
+9. Live Demo URL: https://nurincse48.github.io/image_gallery_by_Nurin/
+10.Source Code URL: https://github.com/nurincse48/image_gallery_by_Nurin.git
